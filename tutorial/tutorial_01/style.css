@@ -1,0 +1,15 @@
+table{
+  width: 270px;
+  border-spacing: 0;
+  border: 1px solid #000000;
+}
+.white{
+  height: 30px;
+  width: 30px;
+  background-color: #FFFFFF;
+}
+.black{
+  height: 30px;
+  width: 30px;
+  background-color: #000000;
+}
