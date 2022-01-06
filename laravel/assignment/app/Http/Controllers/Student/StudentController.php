@@ -2,35 +2,40 @@
 
 namespace App\Http\Controllers\Student;
 
-use App\Contracts\Services\Post\PostServiceInterface;
+use App\Contracts\Services\Student\StudentServiceInterface;
 use App\Models\Student;
 use App\Models\Major;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Exports\StudentsExport;
+use App\Imports\StudentsImport;
+use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\DB;
 
 class StudentController extends Controller
 {
     /**
      * PostInterface
      */
-    private $postInterface;
+    private $studentInterface;
 
     /**
      * Create a new controller instance.
      * @return void
      */
-    public function __construct(PostServiceInterface $postServiceInterface)
+    public function __construct(StudentServiceInterface $studentServiceInterface)
     {
-        $this->postInterface = $postServiceInterface;
+        $this->studentInterface = $studentServiceInterface;
     }
 
     /**
      * Display a listing of the resource.
+     * @param Request
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $students = $this->postInterface->index();
+        $students = $this->studentInterface->index($request);
         return view('students.index', compact('students'));
     }
 
@@ -40,7 +45,7 @@ class StudentController extends Controller
      */
     public function create()
     {
-        $majors = $this->postInterface->create();
+        $majors = $this->studentInterface->create();
         return view('students.create', compact('majors'));
     }
 
@@ -56,7 +61,7 @@ class StudentController extends Controller
             'age' => 'required',
             'major_id' => 'required',
         ]);
-        $this->postInterface->store($request);
+        $this->studentInterface->store($request);
         return redirect('/')->with('success', 'Student created successfully.');
     }
 
@@ -67,7 +72,7 @@ class StudentController extends Controller
      */
     public function edit(Student $id)
     {
-        $majors = $this->postInterface->edit($id);
+        $majors = $this->studentInterface->edit($id);
         return view('students.edit', [
             'student' => $id,
             'majors' => $majors,
@@ -86,7 +91,7 @@ class StudentController extends Controller
             'age' => 'required',
             'major_id' => 'required',
         ]);
-        $this->postInterface->update($request, $id);
+        $this->studentInterface->update($request, $id);
         return redirect('/')->with('success', 'Student updated successfully');
     }
 
@@ -97,7 +102,35 @@ class StudentController extends Controller
      */
     public function destory(Student $id)
     {
-        $this->postInterface->destory($id);
+        $this->studentInterface->destory($id);
         return redirect("/")->with('success', 'Student deleted successfully');
+    }
+
+    /**
+     * Import / Export Template View
+     * @return \Illuminate\Support\Collection
+     */
+    public function importExportView()
+    {
+        return view('students.import');
+    }
+
+    /**
+     * Export Function
+     * @return \Illuminate\Support\Collection
+     */
+    public function export()
+    {
+        return Excel::download(new StudentsExport, 'students.csv');
+    }
+
+    /**
+     * Import Function
+     * @return \Illuminate\Support\Collection
+     */
+    public function import()
+    {
+        Excel::import(new StudentsImport, request()->file('file'));
+        return back()->with('success', 'Import Completed');;
     }
 }
