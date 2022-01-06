@@ -105,7 +105,10 @@ class StudentController extends Controller
         $this->studentInterface->destory($id);
         return redirect("/")->with('success', 'Student deleted successfully');
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> b4fbfc51128291e8f30efbf9c266683ca6f04445
     /**
      * Import / Export Template View
      * @return \Illuminate\Support\Collection
@@ -133,4 +136,8 @@ class StudentController extends Controller
         Excel::import(new StudentsImport, request()->file('file'));
         return back()->with('success', 'Import Completed');;
     }
+<<<<<<< HEAD
+=======
+}
+>>>>>>> b4fbfc51128291e8f30efbf9c266683ca6f04445
 }
