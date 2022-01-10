@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\DB;
 class StudentController extends Controller
 {
     /**
-     * PostInterface
+     * studentInterface
      */
     private $studentInterface;
 
@@ -33,9 +33,19 @@ class StudentController extends Controller
      * @param Request
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        $students = $this->studentInterface->index($request);
+        $students = $this->studentInterface->index();
+        return view('students.index', compact('students'));
+    }
+
+    /**
+     * Search Function
+     * @param Request $request
+     */
+    public function search(Request $request)
+    {
+        $students = $this->studentInterface->search($request);
         return view('students.index', compact('students'));
     }
 
@@ -84,7 +94,7 @@ class StudentController extends Controller
      * @param Request $request, @param Student $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Student $id)
+    public function update(Request $request, $id)
     {
         $request->validate([
             'name' => 'required',
@@ -100,15 +110,12 @@ class StudentController extends Controller
      * @param Student $id
      * @return \Illuminate\Http\Response
      */
-    public function destory(Student $id)
+    public function destory($id)
     {
         $this->studentInterface->destory($id);
         return redirect("/")->with('success', 'Student deleted successfully');
     }
-<<<<<<< HEAD
 
-=======
->>>>>>> b4fbfc51128291e8f30efbf9c266683ca6f04445
     /**
      * Import / Export Template View
      * @return \Illuminate\Support\Collection
@@ -124,7 +131,7 @@ class StudentController extends Controller
      */
     public function export()
     {
-        return Excel::download(new StudentsExport, 'students.csv');
+        return $this->studentInterface->export();
     }
 
     /**
@@ -133,11 +140,7 @@ class StudentController extends Controller
      */
     public function import()
     {
-        Excel::import(new StudentsImport, request()->file('file'));
-        return back()->with('success', 'Import Completed');;
+        $this->studentInterface->import();
+        return redirect("/")->with('success', 'Import Completed');
     }
-<<<<<<< HEAD
-=======
-}
->>>>>>> b4fbfc51128291e8f30efbf9c266683ca6f04445
 }

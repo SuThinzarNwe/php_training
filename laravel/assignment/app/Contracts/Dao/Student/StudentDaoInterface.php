@@ -15,7 +15,13 @@ interface StudentDaoInterface
      * Home Page Function to show data
      * @param Request
      */
-    public function index(Request $request);
+    public function index();
+
+    /**
+     * Search Function
+     * @param Request $request
+     */
+    public function search(Request $request);
 
     /**
      * Show the form for creating a new resource.
@@ -32,7 +38,7 @@ interface StudentDaoInterface
      * Delete Function
      * @param Student $student
      */
-    public function destory(Student $student);
+    public function destory($id);
 
     /**
      * Store Function
@@ -44,5 +50,5 @@ interface StudentDaoInterface
      * Update Function
      * @param Request $request, @param Student $id
      */
-    public function update(Request $request, Student $id);
+    public function update(Request $request, $id);
 }

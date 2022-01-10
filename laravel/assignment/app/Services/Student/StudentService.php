@@ -9,6 +9,9 @@ use App\Contracts\Services\Student\StudentServiceInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\StudentsExport;
+use App\Imports\StudentsImport;
 
 /**
  * Service class for post.
@@ -33,9 +36,18 @@ class StudentService implements StudentServiceInterface
      * Home Page Function to show data
      * @param Request
      */
-    public function index(Request $request)
+    public function index()
     {
-        return $this->studentDao->index($request);
+        return $this->studentDao->index();
+    }
+
+    /**
+     * Search Function
+     * @param Request $request
+     */
+    public function search(Request $request)
+    {
+        return $this->studentDao->search($request);
     }
 
     /**
@@ -61,9 +73,9 @@ class StudentService implements StudentServiceInterface
      * Delete Function
      * @param Student $student
      */
-    public function destory(Student $student)
+    public function destory($id)
     {
-        return $this->studentDao->destory($student);
+        return $this->studentDao->destory($id);
     }
 
     /**
@@ -79,8 +91,26 @@ class StudentService implements StudentServiceInterface
      * Update Function
      * @param Request $request, @param Student $student
      */
-    public function update(Request $request, Student $id)
+    public function update(Request $request, $id)
     {
         return $this->studentDao->update($request, $id);
+    }
+
+    /**
+     * Export Function
+     * @return \Illuminate\Support\Collection
+     */
+    public function export()
+    {
+        return Excel::download(new StudentsExport, 'students.csv');
+    }
+
+    /**
+     * Import Function
+     * @return \Illuminate\Support\Collection
+     */
+    public function import()
+    {
+        return Excel::import(new StudentsImport, request()->file('file'));
     }
 }
