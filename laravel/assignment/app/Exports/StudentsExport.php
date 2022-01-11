@@ -27,7 +27,10 @@ class StudentsExport implements FromCollection, WithHeadings
             "name",
             "age",
             "major_id",
+<<<<<<< HEAD
             "email",
+=======
+>>>>>>> a39aeb12da0187907b2813aee10ee0dabb6df30a
             "created_at",
             "updated_at"
         ];

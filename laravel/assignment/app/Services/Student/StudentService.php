@@ -12,9 +12,12 @@ use Illuminate\Support\Facades\Storage;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\StudentsExport;
 use App\Imports\StudentsImport;
+<<<<<<< HEAD
 use App\Mail\TestMail;
 use App\Mail\sendMailData;
 use Illuminate\Support\Facades\Mail;
+=======
+>>>>>>> a39aeb12da0187907b2813aee10ee0dabb6df30a
 
 /**
  * Service class for post.
@@ -116,6 +119,7 @@ class StudentService implements StudentServiceInterface
     {
         return Excel::import(new StudentsImport, request()->file('file'));
     }
+<<<<<<< HEAD
 
     /**
      * Send Mail to created user email
@@ -140,4 +144,6 @@ class StudentService implements StudentServiceInterface
         $email = request()->email;
         return Mail::to("$email")->send(new SendMailData($students));
     }
+=======
+>>>>>>> a39aeb12da0187907b2813aee10ee0dabb6df30a
 }

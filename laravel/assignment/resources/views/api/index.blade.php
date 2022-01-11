@@ -18,7 +18,10 @@
           <h2>Students List</h2>
         </div>
         <div class="float-end">
+<<<<<<< HEAD
           <a class="btn btn-success" href="{{ url('api/sendMail') }}">Send Data</a>
+=======
+>>>>>>> a39aeb12da0187907b2813aee10ee0dabb6df30a
           <a class="btn btn-success" href="{{ url('api/create') }}">Add new Students</a>
         </div>
       </div>
@@ -35,7 +38,10 @@
           <th>Name</th>
           <th>Age</th>
           <th>Major</th>
+<<<<<<< HEAD
           <th>Email</th>
+=======
+>>>>>>> a39aeb12da0187907b2813aee10ee0dabb6df30a
           <th width="280px">Action</th>
         </tr>
       </thead>
@@ -51,7 +57,11 @@
       url: "http://localhost:8000/api/students",
       success: function(result) {
         result.forEach(post => {
+<<<<<<< HEAD
           $("tbody").append(`<tr><td>${post.id}</td><td>${post.name}</td><td>${post.age}</td><td>${post.major}</td><td>${post.email}</td><td><form action="" method="POST">
+=======
+          $("tbody").append(`<tr><td>${post.id}</td><td>${post.name}</td><td>${post.age}</td><td>${post.major}</td><td><form action="" method="POST">
+>>>>>>> a39aeb12da0187907b2813aee10ee0dabb6df30a
         <a class="btn btn-primary" href="api/students/edit/${post.id}">Edit</a><meta name="csrf-token" content="{{ csrf_token() }}">
         <a class="btn btn-danger deleteStudent" id="${post.id}">Delete</a>
       </form></td></tr>`);

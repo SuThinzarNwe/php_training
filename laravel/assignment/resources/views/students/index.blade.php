@@ -26,7 +26,10 @@
       <h2>Students List</h2>
     </div>
     <div class="float-end">
+<<<<<<< HEAD
       <a class="btn btn-success" href="{{ url('/sendMailForm') }}">Send Mail</a>
+=======
+>>>>>>> a39aeb12da0187907b2813aee10ee0dabb6df30a
       <a class="btn btn-success" href="{{ url('/importExportView') }}">Import/Export View</a>
       <a class="btn btn-success" href="{{ url('/create') }}">Add new Students</a>
     </div>
@@ -45,7 +48,10 @@
     <th>Name</th>
     <th>Age</th>
     <th>Major</th>
+<<<<<<< HEAD
     <th>Email</th>
+=======
+>>>>>>> a39aeb12da0187907b2813aee10ee0dabb6df30a
     <th width="280px">Action</th>
   </tr>
   @foreach ($students as $student)
@@ -54,7 +60,10 @@
     <td>{{ $student->name }}</td>
     <td>{{ $student->age }}</td>
     <td>{{ $student->major}}</td>
+<<<<<<< HEAD
     <td>{{ $student->email}}</td>
+=======
+>>>>>>> a39aeb12da0187907b2813aee10ee0dabb6df30a
     <td>
       <form action="{{ url('delete/'.$student->id) }}" method="POST">
         <a class="btn btn-primary" href="{{ url('/edit',$student->id) }}">Edit</a>

@@ -25,6 +25,9 @@ Route::get('/api/create', function () {
 Route::get('/api/students/edit/{id}', function () {
     return view('api.edit');
 });
+<<<<<<< HEAD
 Route::get('/api/sendMail', function () {
     return view('api.sendMail');
 });
+=======
+>>>>>>> a39aeb12da0187907b2813aee10ee0dabb6df30a

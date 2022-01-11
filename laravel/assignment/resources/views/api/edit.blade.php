@@ -59,6 +59,7 @@
             <div class="error-major"></div>
           </div>
         </div>
+<<<<<<< HEAD
         <div class="col-xs-12 col-sm-12 col-md-12">
           <div class="form-group">
             <strong>Email:</strong>
@@ -66,6 +67,8 @@
             <div class="error-email"></div>
           </div>
         </div>
+=======
+>>>>>>> a39aeb12da0187907b2813aee10ee0dabb6df30a
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
           <button type="submit" id="submit" class="btn btn-primary mt-2">Submit</button>
         </div>
@@ -82,7 +85,10 @@
       success: function(data) {
         $("#name").val(data['name']);
         $("#age").val(data['age']);
+<<<<<<< HEAD
         $("#email").val(data['email']);
+=======
+>>>>>>> a39aeb12da0187907b2813aee10ee0dabb6df30a
       },
     });
 
@@ -114,7 +120,10 @@
           $name = $('#name').val();
           $age = $('#age').val();
           $major = $('#major').val();
+<<<<<<< HEAD
           $email = $('#email').val();
+=======
+>>>>>>> a39aeb12da0187907b2813aee10ee0dabb6df30a
           if (!$name) {
             $(".error-name").addClass("alert alert-danger").append("Name Field Cannot be empty!");
           }
@@ -124,9 +133,12 @@
           if (!$major) {
             $(".error-major").addClass("alert alert-danger").append("Major Field Cannot be empty!");
           }
+<<<<<<< HEAD
           if (!$email) {
             $(".error-email").addClass("alert alert-danger").append("Email Field Cannot be empty!");
           }
+=======
+>>>>>>> a39aeb12da0187907b2813aee10ee0dabb6df30a
         }
       });
     });

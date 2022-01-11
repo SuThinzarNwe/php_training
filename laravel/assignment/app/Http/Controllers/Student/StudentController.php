@@ -11,8 +11,11 @@ use App\Exports\StudentsExport;
 use App\Imports\StudentsImport;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\DB;
+<<<<<<< HEAD
 use App\Mail\SendMailData;
 use Illuminate\Support\Facades\Mail;
+=======
+>>>>>>> a39aeb12da0187907b2813aee10ee0dabb6df30a
 
 class StudentController extends Controller
 {
@@ -75,8 +78,12 @@ class StudentController extends Controller
             'email' => 'required',
         ]);
         $this->studentInterface->store($request);
+<<<<<<< HEAD
         $this->studentInterface->sendMail();
         return redirect('/')->with('success', 'Student created and Send Mail successfully!');
+=======
+        return redirect('/')->with('success', 'Student created successfully.');
+>>>>>>> a39aeb12da0187907b2813aee10ee0dabb6df30a
     }
 
     /**
@@ -147,6 +154,7 @@ class StudentController extends Controller
     {
         $this->studentInterface->import();
         return redirect("/")->with('success', 'Import Completed');
+<<<<<<< HEAD
     }
 
     /**
@@ -168,5 +176,7 @@ class StudentController extends Controller
     public function sendMailForm()
     {
         return view('students.sendMail');
+=======
+>>>>>>> a39aeb12da0187907b2813aee10ee0dabb6df30a
     }
 }

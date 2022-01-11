@@ -51,9 +51,12 @@ interface StudentDaoInterface
      * @param Request $request, @param Student $id
      */
     public function update(Request $request, $id);
+<<<<<<< HEAD
 
     /**
      * Send Student Data to email
      */
     public function sendMailData();
+=======
+>>>>>>> a39aeb12da0187907b2813aee10ee0dabb6df30a
 }

@@ -35,10 +35,13 @@ class StudentDao implements StudentDaoInterface
         return $students->get();
     }
 
+<<<<<<< HEAD
     /**
      * Search Function
      * @param Request $request
      */
+=======
+>>>>>>> a39aeb12da0187907b2813aee10ee0dabb6df30a
     public function search(Request $request)
     {
         $students = DB::table('students')
@@ -110,6 +113,7 @@ class StudentDao implements StudentDaoInterface
         $student->name = $request->name;
         $student->age = $request->age;
         $student->major_id = $request->major_id;
+<<<<<<< HEAD
         $student->email = $request->email;
         $student->save();
     }
@@ -127,4 +131,8 @@ class StudentDao implements StudentDaoInterface
             ->where('students.deleted_at', '=', NULL);
         return $students->get();
     }
+=======
+        $student->save();
+    }
+>>>>>>> a39aeb12da0187907b2813aee10ee0dabb6df30a
 }

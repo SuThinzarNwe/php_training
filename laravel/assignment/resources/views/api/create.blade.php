@@ -58,6 +58,7 @@
             <div class="error-major"></div>
           </div>
         </div>
+<<<<<<< HEAD
         <div class="col-xs-12 col-sm-12 col-md-12">
           <div class="form-group">
             <strong>Email:</strong>
@@ -65,6 +66,8 @@
             <div class="error-email"></div>
           </div>
         </div>
+=======
+>>>>>>> a39aeb12da0187907b2813aee10ee0dabb6df30a
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
           <button type="submit" class="btn btn-primary mt-3 submit" id="submit">Submit</button>
         </div>
@@ -91,7 +94,11 @@
         method: 'POST',
         data: $('#addStudent').serialize(),
         success: function(data) {
+<<<<<<< HEAD
           alert("Student Added and Sent Mail Successfully!");
+=======
+          alert("Student Added Successfully!");
+>>>>>>> a39aeb12da0187907b2813aee10ee0dabb6df30a
           window.location = "/api";
         },
         error: function(err) {
@@ -105,9 +112,12 @@
           if ($error['errors']['major']) {
             $(".error-major").addClass("alert alert-danger").append($error['errors']['major'][0]);
           }
+<<<<<<< HEAD
           if ($error['errors']['email']) {
             $(".error-email").addClass("alert alert-danger").append($error['errors']['email'][0]);
           }
+=======
+>>>>>>> a39aeb12da0187907b2813aee10ee0dabb6df30a
         }
       });
     });

@@ -47,10 +47,15 @@ class StudentApiController extends Controller
             'name' => 'required',
             'age' => 'required',
             'major_id' => 'required',
+<<<<<<< HEAD
             'email' => 'required',
         ]);
         $this->studentInterface->store($request);
         $this->studentInterface->sendMail();
+=======
+        ]);
+        $this->studentInterface->store($request);
+>>>>>>> a39aeb12da0187907b2813aee10ee0dabb6df30a
     }
 
     /**
@@ -97,6 +102,7 @@ class StudentApiController extends Controller
         $major = Major::all();
         return response()->json($major);
     }
+<<<<<<< HEAD
 
     /**
      * Send Student Data to email
@@ -108,4 +114,6 @@ class StudentApiController extends Controller
         ]);
         $this->studentInterface->sendMailData();
     }
+=======
+>>>>>>> a39aeb12da0187907b2813aee10ee0dabb6df30a
 }

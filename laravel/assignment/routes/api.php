@@ -21,7 +21,10 @@ use Illuminate\Support\Facades\Route;
 Route::group([], function () {
     Route::get('/students', [StudentApiController::class, 'index']);
     Route::get('/students/{id}', [StudentApiController::class, 'show']);
+<<<<<<< HEAD
     Route::post('/mail', [StudentApiController::class, 'sendMailData']);
+=======
+>>>>>>> a39aeb12da0187907b2813aee10ee0dabb6df30a
     Route::post('/students', [StudentApiController::class, 'store']);
     Route::get('/majors', [StudentApiController::class, 'getMajor']);
     Route::get('/majors/{id}', [StudentApiController::class, 'getMajorById']);

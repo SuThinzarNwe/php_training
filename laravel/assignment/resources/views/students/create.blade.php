@@ -51,6 +51,7 @@
           {{ $message }}
         </span>
         @enderror
+<<<<<<< HEAD
       </div>
       <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
@@ -67,6 +68,14 @@
         <button type="submit" class="btn btn-primary mt-3">Submit</button>
       </div>
     </div>
+=======
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+      <button type="submit" class="btn btn-primary mt-3">Submit</button>
+    </div>
+  </div>
+>>>>>>> a39aeb12da0187907b2813aee10ee0dabb6df30a
 
 </form>
 @endsection

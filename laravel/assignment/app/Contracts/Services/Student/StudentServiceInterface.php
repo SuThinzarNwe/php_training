@@ -63,6 +63,7 @@ interface StudentServiceInterface
      * @return \Illuminate\Support\Collection
      */
     public function import();
+<<<<<<< HEAD
 
     /**
      * Send Mail to created user email
@@ -73,4 +74,6 @@ interface StudentServiceInterface
      * Send Student Data to email
      */
     public function sendMailData();
+=======
+>>>>>>> a39aeb12da0187907b2813aee10ee0dabb6df30a
 }
